@@ -1,0 +1,22 @@
+<%= simple_form_for(@restaurant) do |f|%>
+  <% if @restaurant.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, error: 'Name is mandatory, please specify one' %>
+  <%= f.input :address, error: 'Address is mandatory, please specify one' %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, error: 'Category is mandatory, please specify one', collection: %w[chinese italian japanese french belgian]  %>
+
+  <div class="row justify-content-between px-3">
+    <%= f.button :submit, class: "btn btn-primary"  %>
+    <%= link_to 'Cancel', restaurants_path, class: "btn btn-danger" %>
+  </div>
+
+<% end %>

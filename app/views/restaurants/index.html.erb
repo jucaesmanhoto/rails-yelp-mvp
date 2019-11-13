@@ -1,0 +1,28 @@
+<div class="container p-4">
+
+  <div class="row justify-content-between">
+    <h1>Restaurant Index</h1>
+
+    <div>
+      <%= link_to new_restaurant_path do %>
+        <input type="button" value="New" class="btn border">
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <ul>
+      <% @restaurants.each do |restaurant| %>
+        <li>
+          <%= link_to restaurant.name, restaurant_path(restaurant) %>
+          <%= link_to edit_restaurant_path(restaurant) do %>
+            <input type="button" value="Edit" class="btn">
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
